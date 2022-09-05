@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "<C-p>",":lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>", opts)
+keymap("n", "<C-p>",":lua require'telescope.builtin'.find_files()<cr>", opts)
 keymap("n", "<leader>n",":NvimTreeToggle<cr>", opts)
 
 keymap("n", "<C-n>", ":tabnew<cr>", opts)
