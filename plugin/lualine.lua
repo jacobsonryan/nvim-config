@@ -2,14 +2,14 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " ", hint = " ", info = " " },
+  symbols = { error = " ", warn = " ", hint = " ", info = " " },
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
 }
 require('lualine').setup { options = {
     icons_enabled = true,
-    theme = 'github_dark_default',
+    theme = 'horizon',
 		component_separators = '',
     section_separators = '',
 		disabled_filetypes = {'NvimTree'},

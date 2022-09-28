@@ -20,7 +20,8 @@ vim.g.mapleader = " "
 vim.g.webdevicons_enable = 1
 
 vim.cmd [[syntax on]]
-vim.cmd [[colorscheme github_dark_default]]
+vim.cmd [[colorscheme horizon]]
+-- vim.cmd [[colorscheme github_dark_default]]
 
 vim.diagnostic.config({
   signs = true,

@@ -4,6 +4,7 @@ return require('packer').startup(function()
 
 	-- Colorscheme
 	use 'projekt0n/github-nvim-theme'
+  use "lunarvim/horizon.nvim"
 
 	-- Lualine 
 	use 'nvim-lualine/lualine.nvim'
