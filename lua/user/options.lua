@@ -28,7 +28,10 @@ vim.diagnostic.config({
   underline = false,
   update_in_insert = true,
   severity_sort = false,
-  virtual_text = { spacing = 4, prefix = "●" },
+  virtual_text = {
+    spacing = 4,
+    -- prefix = "●"
+  },
 })
 
 vim.cmd [[

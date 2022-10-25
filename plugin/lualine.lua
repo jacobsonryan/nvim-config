@@ -2,7 +2,8 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
-  symbols = { error = " ", warn = " ", hint = " ", info = " " },
+  -- symbols = { error = " ", warn = " ", hint = " ", info = " " },
+  symbols = { error = Symbols.error, warn = Symbols.warning, hint = Symbols.hint, info = Symbols.info },
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
@@ -34,3 +35,5 @@ require('lualine').setup { options = {
   },
   extensions = {'nvim-tree'}
 }
+
+

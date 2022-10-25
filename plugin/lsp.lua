@@ -9,7 +9,7 @@ nvim_lsp[lsp].setup{
 }
 end
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = Symbols.error, Warn = Symbols.warning, Hint = Symbols.hint, Info = Symbols.info }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type

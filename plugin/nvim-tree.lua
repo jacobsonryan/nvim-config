@@ -2,10 +2,10 @@ require("nvim-tree").setup({
 	diagnostics = {
 		enable = true,
     icons = {
-      hint = " ",
-      info = " ",
-      warning = " ",
-      error = " ",
+      hint = Symbols.hint,
+      info = Symbols.info,
+      warning = Symbols.warning,
+      error = Symbols.error,
     },
 	}
 })
