@@ -94,15 +94,10 @@ _G.packer_plugins = {
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["github-nvim-theme"] = {
+  ["gruvbox.nvim"] = {
     loaded = true,
-    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
-    url = "https://github.com/projekt0n/github-nvim-theme"
-  },
-  ["horizon.nvim"] = {
-    loaded = true,
-    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/horizon.nvim",
-    url = "https://github.com/lunarvim/horizon.nvim"
+    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -114,6 +109,16 @@ _G.packer_plugins = {
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -124,15 +129,15 @@ _G.packer_plugins = {
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/NvChad/nvim-colorizer.lua"
+  },
   ["nvim-comment"] = {
     loaded = true,
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

@@ -9,9 +9,11 @@ local keymap = vim.api.nvim_set_keymap
 keymap("n", "<C-p>",":lua require'telescope.builtin'.find_files()<cr>", opts)
 keymap("n", "<leader>n",":NvimTreeToggle<cr>", opts)
 
-keymap("n", "<C-n>", ":tabnew<cr>", opts)
+keymap('t', '<Esc>', [[<C-\><C-n>]], opts)
+keymap("n", "<C-n>", ":tabnew | term<cr>", opts)
 keymap("n", "<C-l>", ":tabn<cr>", opts)
 keymap("n", "<C-h>", ":tabp<cr>", opts)
+
 
 keymap("n", "<leader>ga", ":Git add .<cr>", opts)
 keymap("n", "<leader>gc", ":Git commit -m ", not_silent)
@@ -26,5 +28,7 @@ keymap("n", "<Up>", "<Nop>", opts)
 keymap("n", "<Down>", "<Nop>", opts)
 keymap("n", "<Right>", "<Nop>", opts)
 keymap("n", "<Left>", "<Nop>", opts)
+
+
 
 

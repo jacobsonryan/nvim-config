@@ -3,11 +3,13 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	-- Colorscheme
-	use 'projekt0n/github-nvim-theme'
-  use "lunarvim/horizon.nvim"
+  use 'ellisonleao/gruvbox.nvim'
+
+  -- Colorizer
+  use "NvChad/nvim-colorizer.lua"
 
 	-- Lualine 
-	use 'nvim-lualine/lualine.nvim'
+  use 'nvim-lualine/lualine.nvim'
 
 	-- Treesitter
 	use {
@@ -20,7 +22,8 @@ return require('packer').startup(function()
 
 	-- LSP 
 	use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
 
   -- Autocomplete
 	use 'hrsh7th/cmp-nvim-lsp'

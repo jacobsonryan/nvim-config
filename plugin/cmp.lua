@@ -1,5 +1,9 @@
 local lspkind = require('lspkind')
 local cmp = require("cmp")
+
+vim.api.nvim_set_hl(0, "MyPmenu", { bg = "#0A0E14", fg = "#ffffff"})
+vim.api.nvim_set_hl(0, "MyPmenuSel", { bg = "#111822"})
+
 cmp.setup({
    snippet = {
       expand = function(args)
@@ -7,9 +11,6 @@ cmp.setup({
       end,
    },
    mapping = {
-      -- ["<Up>"] = cmp.mapping.select_prev_item(),
-      -- ["<Down>"] = cmp.mapping.select_next_item(),
-
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.close(),
@@ -36,6 +37,14 @@ cmp.setup({
         luasnip = "[snip]",
       },
     },
+  },
+  window = {
+    completion = cmp.config.window.bordered({
+      winhighlight = "Normal:MyPmenu,FloatBorder:MyPmenu,CursorLine:MyPmenuSel,Search:None",
+    }),
+    documentation = cmp.config.window.bordered({
+      winhighlight = "Normal:MyPmenu,FloatBorder:MyPmenu,CursorLine:MyPmenuSel,Search:None",
+    }),
   },
 })
 

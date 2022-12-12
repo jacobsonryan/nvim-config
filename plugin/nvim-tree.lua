@@ -1,3 +1,4 @@
+local Symbols = require'user.symbols'
 require("nvim-tree").setup({
 	diagnostics = {
 		enable = true,

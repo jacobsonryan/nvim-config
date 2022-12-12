@@ -1,4 +1,4 @@
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local nvim_lsp = require('lspconfig')
 local servers = {'tsserver', 'html', 'cssls', 'rust_analyzer', 'vimls', 'jsonls', 'sumneko_lua', 'clangd'}
 local lspconfig = require'lspconfig'
@@ -9,6 +9,7 @@ nvim_lsp[lsp].setup{
 }
 end
 
+local Symbols = require'user.symbols'
 local signs = { Error = Symbols.error, Warn = Symbols.warning, Hint = Symbols.hint, Info = Symbols.info }
 
 for type, icon in pairs(signs) do

@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.autoindent = true
@@ -18,10 +19,10 @@ vim.opt.cul = true
 vim.opt.swapfile = false
 vim.g.mapleader = " "
 vim.g.webdevicons_enable = 1
+vim.opt.mouse = ""
 
+vim.cmd [[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
 vim.cmd [[syntax on]]
-vim.cmd [[colorscheme horizon]]
--- vim.cmd [[colorscheme github_dark_default]]
 
 vim.diagnostic.config({
   signs = true,
