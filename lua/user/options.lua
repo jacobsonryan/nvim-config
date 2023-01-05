@@ -24,17 +24,6 @@ vim.opt.mouse = ""
 vim.cmd [[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
 vim.cmd [[syntax on]]
 
-vim.diagnostic.config({
-  signs = true,
-  underline = false,
-  update_in_insert = true,
-  severity_sort = false,
-  virtual_text = {
-    spacing = 4,
-    -- prefix = "●"
-  },
-})
-
 vim.cmd [[
 augroup BgHighlight
     autocmd!

@@ -2,7 +2,7 @@ require("gruvbox").setup({
 	undercurl = true,
 	underline = true,
 	bold = true,
-	italic = true,
+	italic = false,
 	strikethrough = true,
 	invert_selection = false,
 	invert_signs = false,
@@ -12,8 +12,10 @@ require("gruvbox").setup({
 	inverse = true, -- invert background for search, diffs, statuslines and errors
 	contrast = "hard", -- can be "hard", "soft" or empty string
 	overrides = {
-    Visual = {bg = "#111822"},
-    CursorLine = {bg = "#111822"}
+    Visual = {bg = "#212f42"},
+    CursorLine = {bg = "#00010A"},
+    Pmenu = {bg = "#0A0E14", fg = "#ebdbb2"},
+    PmenuSel = {bg = "#212f42", fg = "#ebdbb2"}
   },
 	dim_inactive = false,
 	transparent_mode = false,
@@ -21,7 +23,7 @@ require("gruvbox").setup({
 		dark0_hard = "#0A0E14",
 		dark0 = "#282828",
 		dark0_soft = "#32302f",
-		dark1 = "#0A0E14",
+		dark1 = "none",
 		dark2 = "#504945",
 		dark3 = "#665c54",
 		dark4 = "#7c6f64",
@@ -63,3 +65,10 @@ if not status_ok then
 	vim.notify("colorscheme " .. colorscheme .. " not found!")
 	return
 end
+
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight VertSplit guifg=none guibg=NONE
+]]
+

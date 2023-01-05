@@ -13,9 +13,9 @@ return require('packer').startup(function()
 
 	-- Treesitter
 	use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
+	    'nvim-treesitter/nvim-treesitter',
+	    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	  }
 
 	-- Devicons
   use 'kyazdani42/nvim-web-devicons'
@@ -39,6 +39,7 @@ return require('packer').startup(function()
 	-- Autopairs & Autotag
 	use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
+  use 'ur4ltz/surround.nvim'
 
   -- Telescope
   use {
@@ -53,4 +54,7 @@ return require('packer').startup(function()
   -- Github Integration
   use 'tpope/vim-fugitive'
 
+  -- Terminal 
+  use 'jacobsonryan/workingterm.nvim'
+  -- use '/home/ryan/projects/workingterm.nvim'
 end)

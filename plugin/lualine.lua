@@ -10,24 +10,23 @@ local diagnostics = {
 }
 
 local custom_gruvbox = require'lualine.themes.gruvbox'
-
-custom_gruvbox.normal.b.bg = "#0A0E14"
-custom_gruvbox.normal.c.bg = "#0A0E14"
+custom_gruvbox.normal.b.bg = "none"
+custom_gruvbox.normal.c.bg = "none"
 custom_gruvbox.normal.a.fg = "#0A0E14"
 custom_gruvbox.normal.a.bg = "#fabd2f"
 
-custom_gruvbox.insert.b.bg = "#0A0E14"
-custom_gruvbox.insert.c.bg = "#0A0E14"
+custom_gruvbox.insert.b.bg = "none"
+custom_gruvbox.insert.c.bg = "none"
 custom_gruvbox.insert.a.fg = "#0A0E14"
 custom_gruvbox.insert.a.bg = "#fabd2f"
 
-custom_gruvbox.visual.b.bg = "#0A0E14"
-custom_gruvbox.visual.c.bg = "#0A0E14"
+custom_gruvbox.visual.b.bg = "none"
+custom_gruvbox.visual.c.bg = "none"
 custom_gruvbox.visual.a.fg = "#0A0E14"
 custom_gruvbox.visual.a.bg = "#fabd2f"
 
-custom_gruvbox.command.b.bg = "#0A0E14"
-custom_gruvbox.command.c.bg = "#0A0E14"
+custom_gruvbox.command.b.bg = "none"
+custom_gruvbox.command.c.bg = "none"
 custom_gruvbox.command.a.fg = "#0A0E14"
 custom_gruvbox.command.a.bg = "#fabd2f"
 
