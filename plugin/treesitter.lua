@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
-  ignore_install = {"t32"},
+  ignore_install = {"t32", "tar"},
   sync_install = false,
   autotag = {
     enable = true,

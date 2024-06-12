@@ -36,8 +36,8 @@ cmp.setup({
     },
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered({ border = "single", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel" }),
+    documentation = cmp.config.window.bordered({ border = "single", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel" }),
   },
 })
 

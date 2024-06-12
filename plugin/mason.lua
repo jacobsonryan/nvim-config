@@ -1,4 +1,4 @@
-local servers = {'tsserver', 'html', 'cssls', 'rust_analyzer', 'vimls', 'jsonls', 'lua_ls', 'clangd', 'volar'}
+local servers = {'tsserver', 'html', 'cssls', 'rust_analyzer', 'vimls', 'jsonls', 'lua_ls', 'clangd', 'volar', 'tailwindcss'}
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require'lspconfig'
 local Symbols = require'user.symbols'
@@ -26,11 +26,7 @@ vim.diagnostic.config({
   update_in_insert = true,
   severity_sort = false,
   virtual_text = false,
-  float = { border = "rounded" },
-  -- virtual_text = {
-  --   spacing = 4,
-  --   prefix = '●'
-  -- },
+  float = { border = "single", severity_sort = true, focusable = false, scope = "line" },
 })
 
 vim.cmd[[

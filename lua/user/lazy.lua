@@ -1,5 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -12,66 +12,66 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
-	-- Colorscheme
-   { "arturgoms/moonbow.nvim" },
-   'shaunsingh/nord.nvim',
-   'sainnhe/everforest',
-   { 'rose-pine/neovim', name = 'rose-pine' },
+  -- Colorscheme
+  'sainnhe/everforest',
+  { "EdenEast/nightfox.nvim" },
 
   -- Colorizer
-   "NvChad/nvim-colorizer.lua",
+  "NvChad/nvim-colorizer.lua",
 
-	-- Lualine 
-   'nvim-lualine/lualine.nvim',
+  -- Lualine
+  'nvim-lualine/lualine.nvim',
 
-	-- Treesitter
-	 {
-	    'nvim-treesitter/nvim-treesitter',
-	    build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-	  },
+  -- Treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  },
 
-	-- Devicons
-   'kyazdani42/nvim-web-devicons',
+  -- Devicons
+  'kyazdani42/nvim-web-devicons',
 
-	-- LSP 
-	 'neovim/nvim-lspconfig',
-   'williamboman/mason.nvim',
-   'williamboman/mason-lspconfig.nvim',
-   'jose-elias-alvarez/null-ls.nvim',
-   'MunifTanjim/eslint.nvim',
+  -- LSP
+  'neovim/nvim-lspconfig',
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
+  'jose-elias-alvarez/null-ls.nvim',
+  'MunifTanjim/eslint.nvim',
 
   -- Autocomplete
-	 'hrsh7th/cmp-nvim-lsp',
-	 'hrsh7th/cmp-buffer',
-	 'hrsh7th/nvim-cmp',
-	 'hrsh7th/cmp-path',
-	 'L3MON4D3/LuaSnip',
-	 'onsails/lspkind.nvim',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-path',
+  'L3MON4D3/LuaSnip',
+  'onsails/lspkind.nvim',
 
-	-- NvimTree
-	 'kyazdani42/nvim-tree.lua',
+  -- NvimTree
+  'kyazdani42/nvim-tree.lua',
 
-	-- Autopairs & Autotag
-	 'windwp/nvim-autopairs',
-   'windwp/nvim-ts-autotag',
-   'ur4ltz/surround.nvim',
-   'lukas-reineke/indent-blankline.nvim',
+  -- Autopairs & Autotag
+  'windwp/nvim-autopairs',
+  'windwp/nvim-ts-autotag',
+  'ur4ltz/surround.nvim',
+  'lukas-reineke/indent-blankline.nvim',
 
   -- Telescope
-    {
-      'nvim-telescope/telescope.nvim', tag = '0.1.4',
-      dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-live-grep-args.nvim' }
-    },
-    'nvim-telescope/telescope-fzy-native.nvim',
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.4',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-live-grep-args.nvim' }
+  },
+  'nvim-telescope/telescope-fzy-native.nvim',
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
 
   -- Commenting
-   'terrortylor/nvim-comment',
-   'JoosepAlviste/nvim-ts-context-commentstring',
+  'terrortylor/nvim-comment',
+  'JoosepAlviste/nvim-ts-context-commentstring',
 
   -- Github Integration
-   'tpope/vim-fugitive',
-
-  -- Terminal 
-   'jacobsonryan/workingterm.nvim',
-  --  '/home/ryan/projects/workingterm.nvim'
+  'tpope/vim-fugitive',
 })
