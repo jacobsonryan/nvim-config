@@ -14,10 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 return require('lazy').setup({
   -- Colorscheme
   'sainnhe/everforest',
-  { "EdenEast/nightfox.nvim" },
 
   -- Colorizer
-  "NvChad/nvim-colorizer.lua",
+  'NvChad/nvim-colorizer.lua',
 
   -- Lualine
   'nvim-lualine/lualine.nvim',

@@ -1,4 +1,4 @@
-local servers = {'tsserver', 'html', 'cssls', 'rust_analyzer', 'vimls', 'jsonls', 'lua_ls', 'clangd', 'volar', 'tailwindcss'}
+local servers = {'ts_ls', 'html', 'cssls', 'rust_analyzer', 'vimls', 'jsonls', 'lua_ls', 'clangd', 'volar', 'tailwindcss','snyk_ls' }
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require'lspconfig'
 local Symbols = require'user.symbols'

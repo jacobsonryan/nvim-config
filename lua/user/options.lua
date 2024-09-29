@@ -2,7 +2,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.termguicolors = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = true 
 vim.opt.number = true
 vim.opt.autoindent = true
 vim.opt.laststatus = 3
@@ -18,7 +18,7 @@ vim.opt.background = "dark"
 vim.opt.wrap = false
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.signcolumn = "yes"
-vim.opt.cul = false
+vim.opt.cul = false 
 vim.opt.swapfile = false
 vim.g.mapleader = " "
 vim.g.webdevicons_enable = 1
@@ -28,12 +28,10 @@ vim.g.everforest_dim_inactive_windows = 0
 vim.g.everforest_transparent_background = 1
 vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }
 
-
-
 -- vim.cmd [[set guicursor=i:block]]
 vim.cmd [[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
 vim.cmd [[syntax on]]
-vim.cmd [[colorscheme terafox]]
+vim.cmd [[colorscheme everforest]]
 
 vim.cmd [[
   hi Normal guibg=NONE ctermbg=NONE

@@ -6,7 +6,6 @@ keymap.set("n", "<C-p>",":lua require'telescope.builtin'.find_files()<cr>", opts
 keymap.set("n", "<C-b>",":lua require'telescope.builtin'.buffers()<cr>", opts)
 keymap.set("n", "<C-o>",":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", opts)
 keymap.set("n", "<leader>n",":NvimTreeToggle<cr>", opts)
-keymap.set("n", "<leader><leader>",":Beacon<cr>", opts)
 keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float()<cr>", opts)
 keymap.set("v", "p", "P", opts)
 

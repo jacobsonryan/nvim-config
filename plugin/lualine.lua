@@ -30,9 +30,10 @@ custom_everforest.command.a.bg = 'None'
 custom_everforest.command.b.bg = 'None'
 custom_everforest.normal.a.bg = 'None'
 
-require('lualine').setup { options = {
+require('lualine').setup { 
+  options = {
     icons_enabled = true,
-    theme = 'terafox',
+    theme = custom_everforest,
 		component_separators = '',
     section_separators = '',
 		disabled_filetypes = {'NvimTree'},
