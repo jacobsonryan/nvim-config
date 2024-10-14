@@ -2,7 +2,7 @@ local Symbols = require'user.symbols'
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	sections = { "error", "warn", "hint" },
+	sections = { "error", "warn" },
   symbols = { error = Symbols.error, warn = Symbols.warning, hint = Symbols.hint, info = Symbols.info },
 	colored = true,
 	update_in_insert = false,
