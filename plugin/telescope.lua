@@ -49,14 +49,10 @@ require('telescope').setup {
     selection_caret = "❯ ",
     path_display = { "truncate" },
     winblend = 0,
-    -- color_devicons = false,
     sorting_strategy = "descending",
-    -- prompt_prefix = " ",
-    -- selection_caret = "  ",
     entry_prefix = "  ",
     border = {},
     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-    -- borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
     initial_mode = "insert",
     layout_strategy = "vertical_fused",
     layout_config = {
@@ -64,19 +60,6 @@ require('telescope').setup {
       width = 0.45,
       height = 0.6,
     },
-    -- layout_config = {
-    --   horizontal = {
-    --     prompt_position = "top",
-    --     preview_width = 0.55,
-    --     results_width = 0.8,
-    --   },
-    --   vertical = {
-    --     mirror = false,
-    --   },
-    --   width = 0.87,
-    --   height = 0.80,
-    --   preview_cutoff = 120,
-    -- },
     extensions = {
       fzy_native = {
         override_generic_sorter = false,

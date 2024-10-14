@@ -23,7 +23,7 @@ require("nvim-tree").setup({
       web_devicons = {
         file = {
           enable = true,
-          color = true,
+          color = false,
         },
         folder = {
           enable = false,
