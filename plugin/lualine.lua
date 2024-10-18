@@ -1,13 +1,4 @@
 local Symbols = require'user.symbols'
-local diagnostics = {
-	"diagnostics",
-	sources = { "nvim_diagnostic" },
-	sections = { "error", "warn" },
-  symbols = { error = Symbols.error, warn = Symbols.warning, hint = Symbols.hint, info = Symbols.info },
-	colored = true,
-	update_in_insert = false,
-	always_visible = true,
-}
 
 local mode_map = {
   ['NORMAL'] = 'N',
@@ -29,13 +20,23 @@ local mode_map = {
   ['MORE'] = 'M',
 }
 
+local diagnostics = {
+	"diagnostics",
+	sources = { "nvim_diagnostic" },
+	sections = { "error", "warn" },
+  symbols = { error = Symbols.error, warn = Symbols.warning, hint = Symbols.hint, info = Symbols.info },
+	colored = true,
+	update_in_insert = false,
+	always_visible = true,
+}
+
 local auto = require "lualine.themes.gruvbox-material"
 local lualine_modes = { "insert", "normal", "visual", "command", "replace", "inactive", "terminal" }
 for _, field in ipairs(lualine_modes) do
     if auto[field] and auto[field].c then
         auto[field].b.bg = "NONE"
         auto[field].c.bg = "NONE"
-        auto[field].c.fg = "#282828"
+        auto[field].c.fg = "#3c3836"
     end
 end
 

@@ -1,9 +1,9 @@
-Symbols = {
-  hint = " ",
-  info = " ",
-  warning = " ",
-  error = " ",
-}
+-- Symbols = {
+--   hint = " ",
+--   info = " ",
+--   warning = " ",
+--   error = " ",
+-- }
 
 -- Symbols = {
 --   hint = "H ",
@@ -11,5 +11,12 @@ Symbols = {
 --   warning = "W ",
 --   error = "E ",
 -- }
+
+Symbols = {
+  hint = "▪ ",
+  info = "▪ ",
+  warning = "▪ ",
+  error = "▪ ",
+}
 
 return Symbols

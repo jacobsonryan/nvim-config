@@ -2,26 +2,18 @@ require'plenary.filetype'.add_file('foo')
 
 local layout_strategies = require("telescope.pickers.layout_strategies")
 
-layout_strategies.vertical_fused = function(picker, max_columns, max_lines, layout_config)
-  local layout = layout_strategies.vertical(picker, max_columns, max_lines, layout_config)
-
+layout_strategies.horizontal_fused = function(picker, max_columns, max_lines, layout_config)
+  local layout = layout_strategies.horizontal(picker, max_columns, max_lines, layout_config)
   layout.prompt.title = ""
   layout.results.title = ""
-
   if layout.preview then
     layout.preview.title = ""
-    layout.preview.height = layout.preview.height + 1
-    layout.preview.borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' }
-
-    layout.results.borderchars = { "─", "│", "─", "│", "├", "┤", "┤", "├" }
-  else
-    layout.results.borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' }
+    layout.preview.borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '┴' }
+    layout.results.borderchars = { "─", "│", "─", "│", "┌", "┬", "┤", "├" }
+    layout.results.width = layout.results.width + 1
   end
-
   layout.results.height = layout.results.height + 1
-
-  layout.prompt.borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' }
-
+  layout.prompt.width = layout.prompt.width + 1
   return layout
 end
 
@@ -54,11 +46,10 @@ require('telescope').setup {
     border = {},
     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
     initial_mode = "insert",
-    layout_strategy = "vertical_fused",
+    layout_strategy = "horizontal_fused",
     layout_config = {
-      preview_cutoff = 1,
-      width = 0.45,
-      height = 0.6,
+      horizontal = { width = 0.65, height = 0.65 },
+      preview_width = 0.5,
     },
     extensions = {
       fzy_native = {
