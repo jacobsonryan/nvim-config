@@ -46,17 +46,17 @@ require('lualine').setup {
 		component_separators = '',
     section_separators = '',
     theme = auto,
-		disabled_filetypes = {'NvimTree'},
+		disabled_filetypes = { 'NvimTree' },
     always_divide_middle = true,
     globalstatus = true,
   },
   sections = {
     lualine_a = { {'mode', fmt = function(s) return mode_map[s] or s end} },
-    lualine_b = {'branch', 'diff'},
+    lualine_b = {'branch'},
     lualine_c = {'filename'},
     lualine_x = {diagnostics},
 		lualine_y = {},
     lualine_z = {}
   },
-  extensions = {'nvim-tree'}
+  extensions = {'nvim-tree'},
 }

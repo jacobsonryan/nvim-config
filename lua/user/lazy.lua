@@ -16,6 +16,9 @@ return require('lazy').setup({
   'sainnhe/everforest',
   'sainnhe/gruvbox-material',
 
+  -- Idk
+ 'eandrju/cellular-automaton.nvim',
+
   -- Colorizer
   'NvChad/nvim-colorizer.lua',
 
