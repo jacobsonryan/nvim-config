@@ -1,12 +1,17 @@
 local lspkind = require('lspkind')
+local luasnip = require('luasnip')
 local cmp = require("cmp")
 
-cmp.setup({
-   snippet = {
-      expand = function(args)
-         require('luasnip').lsp_expand(args.body)
-      end,
-   },
+luasnip.filetype_extend("typescript", { "javascript" })
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
    mapping = {
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
@@ -21,23 +26,16 @@ cmp.setup({
    sources = {
       { name = "nvim_lsp" },
       { name = "luasnip" },
-      { name = "path" },
       { name = "buffer" },
+      { name = "path" },
    },
   formatting = {
     format = lspkind.cmp_format {
       with_text = true,
-      menu = {
-        buffer = "[buf]",
-        nvim_lsp = "[LSP]",
-        path = "[path]",
-        luasnip = "[snip]",
-      },
     },
   },
   window = {
     completion = cmp.config.window.bordered({ border = "single", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel" }),
     documentation = cmp.config.window.bordered({ border = "single", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel" }),
   },
-})
-
+}

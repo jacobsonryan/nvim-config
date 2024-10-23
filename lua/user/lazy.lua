@@ -47,7 +47,19 @@ return require('lazy').setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-path',
-  'L3MON4D3/LuaSnip',
+   {
+     "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+    require("luasnip").config.set_config {
+        history = true,
+    }
+    end
+  },
+  'saadparwaiz1/cmp_luasnip',
   'onsails/lspkind.nvim',
 
   -- NvimTree
@@ -57,7 +69,6 @@ return require('lazy').setup({
   'windwp/nvim-autopairs',
   'windwp/nvim-ts-autotag',
   'ur4ltz/surround.nvim',
-  -- 'lukas-reineke/indent-blankline.nvim',
   {
     "lukas-reineke/indent-blankline.nvim",
     version = "2.20.8",

@@ -1,6 +1,19 @@
 local opts = { noremap = true, silent = true }
 local not_silent = { noremap = true, silent = false }
 local keymap = vim.keymap
+local ls = require "luasnip"
+
+keymap.set({ "i", "s" }, "<C-l>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, opts)
+
+keymap.set({ "i", "s" }, "<C-h>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, opts)
 
 keymap.set("n", "<C-p>", ":NvimTreeClose<cr>:lua require'telescope.builtin'.find_files()<CR>", opts)
 keymap.set("n", "<C-b>",":NvimTreeClose<cr>:lua require'telescope.builtin'.buffers()<cr>", opts)
