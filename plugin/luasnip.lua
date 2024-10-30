@@ -1,18 +1,19 @@
+local keymap = vim.keymap
 local ls = require "luasnip"
-local s = ls.snippet
-local t = ls.text_node
-local i = ls.insert_node
+local opts = { noremap = true, silent = true }
 
-ls.add_snippets("javascript", {
-  s("arrow", {
-    t("const "),
-    i(1, "functionName"), -- Function name
-    t(" = ("),
-    i(2, ""), -- First parameter
-    t({") => {", "\t"}), -- Multiline with separate lines in an array
-    i(3, ""), -- Function body
-    t({"", "}"}) -- Closing bracket with an empty string for the newline before it
-  }, {
-    description = "Creates a JS arrow function with parameters" -- Description for clarity
-  })
-})
+-- Extend filetype support for HTML
+ls.filetype_extend("html", { "javascript" })
+
+-- Luasnip key mappings
+keymap.set({ "i", "s" }, "<D-]>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, opts)
+
+keymap.set({ "i", "s" }, "<D-[>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, opts)

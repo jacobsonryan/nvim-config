@@ -2,8 +2,6 @@ local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 local cmp = require("cmp")
 
-luasnip.filetype_extend("typescript", { "javascript" })
-
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
