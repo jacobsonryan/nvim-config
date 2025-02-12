@@ -1,5 +1,6 @@
-local Symbols = require'user.symbols'
+local Symbols = require 'user.symbols'
 
+-- Mode mapping
 local mode_map = {
   ['NORMAL'] = 'N',
   ['O-PENDING'] = 'N?',
@@ -20,43 +21,51 @@ local mode_map = {
   ['MORE'] = 'M',
 }
 
+-- Diagnostics setup
 local diagnostics = {
-	"diagnostics",
-	sources = { "nvim_diagnostic" },
-	sections = { "error", "warn" },
+  "diagnostics",
+  sources = { "nvim_diagnostic" },
+  sections = { "error", "warn" },
   symbols = { error = Symbols.error, warn = Symbols.warning, hint = Symbols.hint, info = Symbols.info },
-	colored = true,
-	update_in_insert = false,
-	always_visible = true,
+  colored = true,
+  update_in_insert = false,
+  always_visible = true,
 }
 
-local auto = require "lualine.themes.gruvbox-material"
-local lualine_modes = { "insert", "normal", "visual", "command", "replace", "inactive", "terminal" }
-for _, field in ipairs(lualine_modes) do
-    if auto[field] and auto[field].c then
-        auto[field].b.bg = "NONE"
-        auto[field].c.bg = "NONE"
-        auto[field].c.fg = "#3c3836"
-    end
+-- 🎨 Custom theme with hardcoded colors
+local theme = {
+  normal = { a = { fg = 'NONE', fg = '#3d6e91' } },   -- Normal: Orange bg, White fg
+  insert = { a = { fg = 'NONE', fg = '#4b7d55' } },   -- Insert: Red bg, White fg
+  visual = { a = { fg = 'NONE', fg = '#d8a657' } },   -- Visual: Yellow bg, White fg
+  replace = { a = { fg = 'NONE', fg = '#d14b4b' } },  -- Replace: Red bg, White fg
+  command = { a = { fg = 'NONE', fg = '#d14b4b' } },  -- Command: Blue bg, White fg
+  inactive = { a = { fg = 'NONE', fg = '#4e4e4e' } }, -- Inactive: Grey bg, White fg
+}
+
+-- 🔧 Set all non-`a` sections to `NONE` for background
+for _, mode in pairs(theme) do
+  mode.b = { fg = '#d0d0d0', bg = 'NONE' }
+  mode.c = { fg = '#d0d0d0', bg = 'NONE' }
 end
 
+-- Lualine setup
 require('lualine').setup {
   options = {
     icons_enabled = true,
-		component_separators = '',
+    component_separators = '',
     section_separators = '',
-    theme = auto,
-		disabled_filetypes = { 'NvimTree' },
+    theme = theme,
+    disabled_filetypes = { 'NvimTree' },
     always_divide_middle = true,
     globalstatus = true,
   },
   sections = {
-    lualine_a = { {'mode', fmt = function(s) return mode_map[s] or s end} },
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {diagnostics},
-		lualine_y = {},
+    lualine_a = { { 'mode', fmt = function(s) return mode_map[s] or s end } },
+    lualine_b = { 'branch' },
+    lualine_c = {},
+    lualine_x = { diagnostics },
+    lualine_y = {},
     lualine_z = {}
   },
-  extensions = {'nvim-tree'},
+  extensions = { 'nvim-tree' },
 }

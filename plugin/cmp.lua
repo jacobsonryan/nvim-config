@@ -27,7 +27,7 @@ cmp.setup {
       { name = "buffer" },
       { name = "path" },
    },
-  formatting = {
+   formatting = {
     format = lspkind.cmp_format {
       with_text = true,
     },
@@ -37,3 +37,10 @@ cmp.setup {
     documentation = cmp.config.window.bordered({ border = "single", winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel" }),
   },
 }
+
+cmp.setup.filetype({ 'sql' }, {
+  sources = {
+    { name = "vim-dadbod-completion" },
+    { name = "buffer" },
+  }
+})

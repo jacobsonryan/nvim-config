@@ -15,6 +15,13 @@ return require('lazy').setup({
   -- Colorscheme
   'sainnhe/everforest',
   'sainnhe/gruvbox-material',
+  { "EdenEast/nightfox.nvim" },
+  {
+    "tjdevries/colorbuddy.nvim",
+  },
+
+  -- Fade
+  'TaDaa/vimade',
 
   -- Idk
  'eandrju/cellular-automaton.nvim',

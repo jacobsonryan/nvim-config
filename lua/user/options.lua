@@ -34,7 +34,7 @@ vim.opt.showcmd = false
 -- vim.cmd [[set guicursor=i:block]]
 vim.cmd [[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
 vim.cmd [[syntax on]]
-vim.cmd [[colorscheme gruvbox-material]]
+vim.cmd [[colorscheme beast]]
 
 vim.cmd [[
   au BufNewFile,BufRead *.ejs set filetype=html
