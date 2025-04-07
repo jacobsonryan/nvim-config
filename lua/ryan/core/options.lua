@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
@@ -19,7 +20,6 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.signcolumn = "yes"
 vim.opt.cul = false
 vim.opt.swapfile = false
-vim.g.mapleader = " "
 vim.g.webdevicons_enable = 1
 vim.g.skip_ts_context_commentstring_module = true
 vim.opt.mouse = ""
@@ -31,10 +31,8 @@ vim.g.gruvbox_material_transparent_background = 1
 vim.opt.showmode = false
 vim.opt.showcmd = false
 
--- vim.cmd [[set guicursor=i:block]]
 vim.cmd [[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
 vim.cmd [[syntax on]]
-vim.cmd [[colorscheme beast]]
 
 vim.cmd [[
   au BufNewFile,BufRead *.ejs set filetype=html
