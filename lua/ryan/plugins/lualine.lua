@@ -1,11 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons", 
-  {
-    dir = "~/lualine-nextname.nvim",
-    name = "lualine-nextname.nvim",
-  } 
-},
+  dependencies = { "nvim-tree/nvim-web-devicons", "jacobsonryan/lualine-nextname.nvim" },
   config = function()
     local Symbols = require("ryan.core.symbols")
     local nextname = require("lualine_components.nextname")
