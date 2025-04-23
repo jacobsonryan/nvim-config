@@ -12,14 +12,23 @@ return {
     local s = colorbuddy.styles
 
     -- 🎨 Dulled Core Colors
-    Color.new("red", "#d14b4b")
-    Color.new("green", "#4b7d55")
-    Color.new("blue", "#3d6e91")
-    Color.new("white", "#d0d0d0")
-    Color.new("yellow", "#d8a657")
-    Color.new("grey", "#4e4e4e")
-    Color.new("orange", "#d98e48")
-    Color.new("cyan", "#37cb8a")
+    -- Color.new("red", "#d14b4b")
+    -- Color.new("green", "#4b7d55")
+    -- Color.new("blue", "#3d6e91")
+    -- Color.new("white", "#d0d0d0")
+    -- Color.new("yellow", "#d8a657")
+    -- Color.new("grey", "#4e4e4e")
+    -- Color.new("orange", "#d98e48")
+    -- Color.new("cyan", "#37cb8a")
+
+    Color.new("red",    "#bf616a")
+    Color.new("green",  "#88c0d0")
+    Color.new("blue",   "#5e81ac")
+    Color.new("white",  "#d8dee9")
+    Color.new("yellow", "#b48ead")
+    Color.new("grey",   "#434c5e")
+    Color.new("orange", "#d08770")
+    Color.new("cyan",   "#81a1c1")
 
     -- 🖌️ Base Groups
     Group.new("Normal", c.white, c.none)
@@ -71,11 +80,7 @@ return {
     Group.new("DiagnosticHint", c.green)
 
     -- 🔧 Indent Guides and Splits
-    Group.new("VertSplit", c.grey)
-    Group.new("IndentBlanklineChar", c.grey)
-    Group.new("IndentBlanklineSpaceChar", c.grey)
-    Group.new("IndentBlanklineSpaceCharBlankline", c.grey)
-    Group.new("IndentBlanklineContextChar", c.white)
+    Group.new("WinSeparator", c.grey)
 
     -- 🔧 Other
     Group.new("VisualNOS", c.red, c.none)
@@ -85,5 +90,7 @@ return {
     Group.new("Italic", c.white, nil, s.italic)
     Group.new("Todo", c.orange, c.none, s.bold)
     Group.new("Directory", c.blue)
+    Group.new("StatusLine", c.white, c.none)
+    Group.new("StatusLineNC", c.grey, c.none)
   end,
 }

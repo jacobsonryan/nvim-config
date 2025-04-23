@@ -21,7 +21,7 @@ return {
       },
       renderer = {
         indent_markers = {
-          enable = true,
+          enable = false,
           inline_arrows = true,
         },
         icons = {

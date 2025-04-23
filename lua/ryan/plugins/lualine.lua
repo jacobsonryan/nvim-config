@@ -1,8 +1,14 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons", 
+  {
+    dir = "~/lualine-nextname.nvim",
+    name = "lualine-nextname.nvim",
+  } 
+},
   config = function()
     local Symbols = require("ryan.core.symbols")
+    local nextname = require("lualine_components.nextname")
 
     local mode_map = {
       ["NORMAL"]    = "N",
@@ -40,19 +46,22 @@ return {
     }
 
     local theme = {
-      normal =   { a = { fg = "NONE", fg = "#3d6e91" } },
-      insert =   { a = { fg = "NONE", fg = "#4b7d55" } },
-      visual =   { a = { fg = "NONE", fg = "#d8a657" } },
-      replace =  { a = { fg = "NONE", fg = "#d14b4b" } },
-      command =  { a = { fg = "NONE", fg = "#d14b4b" } },
-      inactive = { a = { fg = "NONE", fg = "#4e4e4e" } },
+      normal =   { a = { fg = "NONE", fg = "#5e81ac" } },
+      insert =   { a = { fg = "NONE", fg = "#88c0d0" } },
+      visual =   { a = { fg = "NONE", fg = "#b48ead" } },
+      replace =  { a = { fg = "NONE", fg = "#bf616a" } },
+      command =  { a = { fg = "NONE", fg = "#bf616a" } },
+      inactive = { a = { fg = "NONE", fg = "#434c5e" } },
     }
 
     for _, mode in pairs(theme) do
-      mode.b = { fg = "#d0d0d0", bg = "NONE" }
-      mode.c = { fg = "#d0d0d0", bg = "NONE" }
-      mode.x = { fg = "#4e4e4e", bg = "NONE" }
+      mode.b = { fg = "#d8dee9", bg = "NONE" }
+      mode.c = { fg = "#434c5e", bg = "NONE" }
+      mode.x = { fg = "#d8dee9", bg = "NONE" }
     end
+
+    vim.api.nvim_set_hl(0, "StatusLineBold", { bold = true, fg = "#d8dee9", bg = "NONE" })
+
 
     require("lualine").setup({
       options = {
@@ -73,8 +82,10 @@ return {
             end,
           },
         },
-        lualine_b = { "branch" },
-        lualine_c = {},
+        lualine_b = {
+          "branch",
+        },
+        lualine_c = { nextname },
         lualine_x = { diagnostics },
         lualine_y = {},
         lualine_z = {},
