@@ -34,8 +34,8 @@ return {
           dashboard.button("n", "  New File", ":enew | startinsert<CR>"),
           dashboard.button("r", "  Buffers", ":lua require('snacks').picker.buffers()<CR>"),
           dashboard.button("g", "󱎸  Grep Text", ":lua require('snacks').picker.grep()<CR>"),
-          dashboard.button("c", "󰢻  Config", ":Neotree filesystem reveal left dir=~/.config/nvim<CR>"),
-          dashboard.button("s", "  Restore Session", ":SessionRestore<CR>"),
+          dashboard.button("c", "󰢻  Config", ":e ~/.config/nvim/init.lua<CR>"),
+          -- dashboard.button("s", "  Restore Session", ":SessionRestore<CR>"),
           dashboard.button("l", "󰒲  Lazy", ":Lazy<CR>"),
           dashboard.button("Q", "  Quit", ":qa<CR>"),
         }
