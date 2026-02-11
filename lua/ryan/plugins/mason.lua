@@ -53,13 +53,13 @@ return {
       lspconfig[server].setup(opts)
     end
 
-    -- ts_ls: disable for Vue files (let vue_ls handle them)
+    -- ts_ls: disable for Vue files (let volar handle them)
     setup("ts_ls", {
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     })
 
-    -- Vue language server with TypeScript support
-    setup("vue_ls", {
+    -- Volar: Vue language server (mason calls it vue_ls, lspconfig calls it volar)
+    setup("volar", {
       filetypes = { "vue" },
       init_options = {
         vue = {
