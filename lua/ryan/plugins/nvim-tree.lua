@@ -4,10 +4,6 @@ return {
   config = function()
     local Symbols = require("ryan.core.symbols")
 
-    -- Disable netrw (required for nvim-tree)
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
     require("nvim-tree").setup({
       disable_netrw = true,
       diagnostics = {
@@ -20,32 +16,23 @@ return {
         },
       },
       renderer = {
-        indent_markers = {
-          enable = false,
-          inline_arrows = true,
-        },
+        indent_markers = { enable = false },
         icons = {
           web_devicons = {
-            file = {
-              enable = true,
-              color = false,
-            },
-            folder = {
-              enable = false,
-              color = false,
-            },
+            file = { enable = true, color = false },
+            folder = { enable = false, color = false },
           },
           glyphs = {
-            default = "",
-            symlink = "",
+            default = "",
+            symlink = "",
             git = {
-              unstaged = "",
-              staged = "",
-              unmerged = "",
+              unstaged = "",
+              staged = "",
+              unmerged = "",
               renamed = "󰁕",
-              untracked = "",
-              deleted = "",
-              ignored = "",
+              untracked = "",
+              deleted = "",
+              ignored = "",
             },
           },
         },

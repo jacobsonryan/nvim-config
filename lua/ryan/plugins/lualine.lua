@@ -31,9 +31,9 @@ return {
       sections = { "error", "warn" },
       symbols = {
         error = Symbols.error,
-        warn  = Symbols.warning,
-        hint  = Symbols.hint,
-        info  = Symbols.info,
+        warn = Symbols.warning,
+        hint = Symbols.hint,
+        info = Symbols.info,
       },
       colored = true,
       update_in_insert = false,
@@ -41,12 +41,12 @@ return {
     }
 
     local theme = {
-      normal =   { a = { fg = "NONE", fg = "#5e81ac" } },
-      insert =   { a = { fg = "NONE", fg = "#88c0d0" } },
-      visual =   { a = { fg = "NONE", fg = "#b48ead" } },
-      replace =  { a = { fg = "NONE", fg = "#bf616a" } },
-      command =  { a = { fg = "NONE", fg = "#bf616a" } },
-      inactive = { a = { fg = "NONE", fg = "#434c5e" } },
+      normal   = { a = { fg = "#5e81ac" } },
+      insert   = { a = { fg = "#88c0d0" } },
+      visual   = { a = { fg = "#b48ead" } },
+      replace  = { a = { fg = "#bf616a" } },
+      command  = { a = { fg = "#bf616a" } },
+      inactive = { a = { fg = "#434c5e" } },
     }
 
     for _, mode in pairs(theme) do
@@ -54,9 +54,6 @@ return {
       mode.c = { fg = "#434c5e", bg = "NONE" }
       mode.x = { fg = "#d8dee9", bg = "NONE" }
     end
-
-    vim.api.nvim_set_hl(0, "StatusLineBold", { bold = true, fg = "#d8dee9", bg = "NONE" })
-
 
     require("lualine").setup({
       options = {
@@ -77,9 +74,7 @@ return {
             end,
           },
         },
-        lualine_b = {
-          "branch",
-        },
+        lualine_b = { "branch" },
         lualine_c = { nextname },
         lualine_x = { diagnostics },
         lualine_y = {},

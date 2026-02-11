@@ -8,8 +8,7 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
-    "rafamadriz/friendly-snippets", -- for VSCode snippet support
-    "kristijanhusak/vim-dadbod-completion", -- used in your filetype config
+    "rafamadriz/friendly-snippets",
   },
   config = function()
     local cmp = require("cmp")
@@ -25,15 +24,15 @@ return {
         end,
       },
       mapping = {
-        ["<C-f>"]     = cmp.mapping.scroll_docs(4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"]     = cmp.mapping.close(),
-        ["<CR>"]      = cmp.mapping.confirm({
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }),
-        ["<Tab>"]     = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-        ["<S-Tab>"]   = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+        ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
       },
       sources = {
         { name = "nvim_lsp" },
@@ -42,9 +41,7 @@ return {
         { name = "path" },
       },
       formatting = {
-        format = lspkind.cmp_format({
-          with_text = true,
-        }),
+        format = lspkind.cmp_format({ with_text = true }),
       },
       window = {
         completion = cmp.config.window.bordered({
@@ -55,14 +52,6 @@ return {
           border = "rounded",
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
         }),
-      },
-    })
-
-    -- Extra filetype config (e.g. SQL)
-    cmp.setup.filetype({ "sql" }, {
-      sources = {
-        { name = "vim-dadbod-completion" },
-        { name = "buffer" },
       },
     })
   end,

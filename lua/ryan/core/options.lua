@@ -1,39 +1,56 @@
 vim.g.mapleader = " "
+
+-- Disable netrw (replaced by nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Skip ts_context_commentstring module warning
+vim.g.skip_ts_context_commentstring_module = true
+
+-- Display
 vim.opt.termguicolors = true
-vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.autoindent = true
-vim.opt.laststatus = 3
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = false
+vim.opt.showmode = false
+vim.opt.showcmd = false
+vim.opt.wrap = false
+vim.opt.scrolloff = 10
+vim.opt.background = "dark"
+vim.opt.fillchars = {
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+  fold = " ",
+  eob = " ",
+  msgsep = "‾",
+}
+
+-- Indentation
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.opt.scrolloff = 10
+vim.opt.autoindent = true
+
+-- Search
 vim.opt.hlsearch = false
-vim.opt.encoding = "UTF-8"
-vim.opt.background = "dark"
-vim.opt.wrap = false
-vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.signcolumn = "yes"
-vim.opt.cul = false
-vim.opt.swapfile = false
-vim.g.webdevicons_enable = 1
-vim.g.skip_ts_context_commentstring_module = true
+
+-- Behavior
 vim.opt.mouse = ""
-vim.g.everforest_dim_inactive_windows = 0
-vim.g.everforest_transparent_background = 1
-vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }
-vim.g.gruvbox_material_dim_inactive_windows = 1
-vim.g.gruvbox_material_transparent_background = 1
-vim.opt.showmode = false
-vim.opt.showcmd = false
+vim.opt.swapfile = false
+vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.laststatus = 3
 
-vim.cmd [[set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾]]
-vim.cmd [[syntax on]]
-
-vim.cmd [[
-  au BufNewFile,BufRead *.ejs set filetype=html
-]]
+-- Filetype overrides
+vim.filetype.add({
+  extension = {
+    ejs = "html",
+  },
+})
