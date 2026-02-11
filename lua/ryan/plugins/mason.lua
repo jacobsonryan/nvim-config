@@ -15,7 +15,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "ts_ls",
-        "volar",
+        "vue_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -25,19 +25,16 @@ return {
       },
     })
 
-    -- Diagnostic signs
-    for type, icon in pairs({
-      Error = Symbols.error,
-      Warn = Symbols.warning,
-      Hint = Symbols.hint,
-      Info = Symbols.info,
-    }) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
-
+    -- Diagnostic config (nvim 0.11+ sign format)
     vim.diagnostic.config({
-      signs = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = Symbols.error,
+          [vim.diagnostic.severity.WARN] = Symbols.warning,
+          [vim.diagnostic.severity.HINT] = Symbols.hint,
+          [vim.diagnostic.severity.INFO] = Symbols.info,
+        },
+      },
       underline = false,
       update_in_insert = true,
       severity_sort = false,
@@ -56,13 +53,13 @@ return {
       lspconfig[server].setup(opts)
     end
 
-    -- ts_ls: disable for Vue files (let Volar handle them)
+    -- ts_ls: disable for Vue files (let vue_ls handle them)
     setup("ts_ls", {
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     })
 
-    -- Volar: Vue language server with TypeScript support
-    setup("volar", {
+    -- Vue language server with TypeScript support
+    setup("vue_ls", {
       filetypes = { "vue" },
       init_options = {
         vue = {
