@@ -7,12 +7,14 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local Symbols = require("ryan.core.symbols")
 
     require("mason").setup()
     require("mason-lspconfig").setup({
+      automatic_enable = {
+        exclude = { "stylua" },
+      },
       ensure_installed = {
         "ts_ls",
         "vue_ls",
@@ -35,47 +37,49 @@ return {
           [vim.diagnostic.severity.INFO] = Symbols.info,
         },
       },
-      underline = false,
+      underline = true,
       update_in_insert = true,
       severity_sort = false,
       virtual_text = false,
       float = {
-        border = "rounded",
+        border = "single",
         severity_sort = true,
         focusable = false,
         scope = "line",
+        header = "",
+        prefix = "",
+        source = false,
+        suffix = function(diagnostic)
+          local code = diagnostic.code or diagnostic.source
+          if code then
+            return " " .. code, "Comment"
+          end
+          return "", ""
+        end,
       },
     })
 
-    -- Shared setup helper
-    local function setup(server, opts)
-      opts = vim.tbl_deep_extend("force", { capabilities = capabilities }, opts or {})
-      lspconfig[server].setup(opts)
-    end
-
-    -- ts_ls: disable for Vue files (let volar handle them)
-    setup("ts_ls", {
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    -- Shared capabilities for all servers
+    vim.lsp.config("*", {
+      capabilities = capabilities,
     })
 
-    -- Volar: Vue language server (mason calls it vue_ls, lspconfig calls it volar)
-    setup("volar", {
-      filetypes = { "vue" },
+    -- ts_ls: include vue so vue_ls can use it for TS support
+    vim.lsp.config("ts_ls", {
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
       init_options = {
-        vue = {
-          hybridMode = false,
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/typescript-plugin",
+            languages = { "vue" },
+          },
         },
       },
     })
 
-    -- Simple servers (no special config)
-    setup("html")
-    setup("cssls")
-    setup("tailwindcss")
-    setup("jsonls")
-    setup("rust_analyzer")
-
-    setup("lua_ls", {
+    -- lua_ls
+    vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
           diagnostics = { globals = { "vim" } },

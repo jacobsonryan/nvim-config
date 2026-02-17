@@ -2,25 +2,19 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
-    "rafamadriz/friendly-snippets",
   },
   config = function()
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
     local lspkind = require("lspkind")
-
-    require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       snippet = {
         expand = function(args)
-          luasnip.lsp_expand(args.body)
+          vim.snippet.expand(args.body)
         end,
       },
       mapping = {
@@ -36,7 +30,6 @@ return {
       },
       sources = {
         { name = "nvim_lsp" },
-        { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
       },
@@ -45,12 +38,12 @@ return {
       },
       window = {
         completion = cmp.config.window.bordered({
-          border = "rounded",
-          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+          border = "single",
+          winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel",
         }),
         documentation = cmp.config.window.bordered({
-          border = "rounded",
-          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+          border = "single",
+          winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel",
         }),
       },
     })

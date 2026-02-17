@@ -16,7 +16,7 @@ return {
         },
       },
       renderer = {
-        indent_markers = { enable = false },
+        indent_markers = { enable = true },
         icons = {
           web_devicons = {
             file = { enable = true, color = false },

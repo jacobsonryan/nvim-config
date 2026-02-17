@@ -1,6 +1,6 @@
+-- Quit nvim if NvimTree is the last window
 local augroup = vim.api.nvim_create_augroup("NvimTreeAutoQuit", { clear = true })
 
--- Quit if nvim-tree is the last window
 vim.api.nvim_create_autocmd("BufEnter", {
   group = augroup,
   pattern = "NvimTree_*",
@@ -14,7 +14,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- Quit all when closing nvim-tree directly
 vim.api.nvim_create_autocmd("QuitPre", {
   group = augroup,
   callback = function()

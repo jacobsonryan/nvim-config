@@ -1,9 +1,5 @@
 vim.g.mapleader = " "
 
--- Disable netrw (replaced by nvim-tree)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- Skip ts_context_commentstring module warning
 vim.g.skip_ts_context_commentstring_module = true
 
@@ -12,17 +8,18 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.showmode = false
 vim.opt.showcmd = false
 vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.background = "dark"
+vim.opt.guicursor = "a:ver25"
 vim.opt.fillchars = {
   horiz = "━",
   horizup = "┻",
   horizdown = "┳",
-  vert = "┃",
+  vert = "│",
   vertleft = "┫",
   vertright = "┣",
   verthoriz = "╋",
